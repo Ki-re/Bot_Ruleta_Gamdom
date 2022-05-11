@@ -27,9 +27,9 @@ s = 0
 while True:
     cls()
     print('Dinero Inicial: '+str(presupuesto_inicial)+'€')
-    print('Dinero Actual: '+str(round(presupuesto,2))+'€')
+    print('Dinero Actual: '+str(round(presupuesto, 2))+'€')
     print('\nApuesta Inicial: '+str(apuesta_inicial)+'€')
-    print('Apuesta Actual: '+str(round(apuesta,2))+'€')
+    print('Apuesta Actual: '+str(round(apuesta, 2))+'€')
     print('\nÚltimo color: '+str(get_color()))
     print('Color al que se apuesta: '+color_apuesta)
     print('\nApuestas: '+str(win+lose))
@@ -37,6 +37,11 @@ while True:
     print('Derrotas: '+str(lose))
     print('\nHora Inicio: '+str(hora_inicio))
     print('Tiempo transcurrido: '+str(h)+":"+str(m)+":"+str(s))
+
+    if (apuesta > presupuesto):
+        print('\nHas perdido, pringao, has tardado '+str(win+lose)+' tiradas')
+        break
+        # print('Te has quedado con '+str(presupuesto)+'€')
 
     ref = get_ref()
 
@@ -50,10 +55,6 @@ while True:
             apuesta *= 2
             lose += 1
         ultima_ref = ref
-    if (apuesta > presupuesto):
-        print('\nHas perdido, pringao, has tardado '+str(win+lose)+' tiradas')
-        break
-        # print('Te has quedado con '+str(presupuesto)+'€')
 
     time.sleep(3)
 
