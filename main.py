@@ -50,7 +50,7 @@ while True:
             apuesta *= 2
             lose += 1
         ultima_ref = ref
-    if (apuesta > presupuesto_inicial):
+    if (apuesta > presupuesto):
         print('\nHas perdido, pringao, has tardado '+str(win+lose)+' tiradas')
         # print('Te has quedado con '+str(presupuesto)+'€')
 
