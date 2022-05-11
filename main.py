@@ -52,7 +52,7 @@ while True:
         ultima_ref = ref
     if (apuesta > presupuesto_inicial):
         print('\nHas perdido, pringao, has tardado '+str(win+lose)+' tiradas')
-        print('Te has quedado con '+str(presupuesto)+'€')
+        # print('Te has quedado con '+str(presupuesto)+'€')
 
     time.sleep(3)
 
