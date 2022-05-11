@@ -1,20 +1,26 @@
 from selenium_main import start_selenium, get_color, selenium_close, get_ref
+import datetime
 import time
 import os
+import config
 
 def cls():
     os.system('cls')
 
 start_selenium("https://gamdom.com/roulette")
 
-presupuesto_inicial = 10
-presupuesto = presupuesto_inicial
-color_apuesta = 'red'
-apuesta_inicial = 0.5
-apuesta = apuesta_inicial
+presupuesto_inicial = config.presupuesto_inicial
+apuesta_inicial = config.apuesta_inicial
+color_apuesta = config.color_apuesta
+presupuesto = config.presupuesto_inicial
+apuesta = config.apuesta_inicial
 ultima_ref = get_ref()
 win = 0
 lose = 0
+hora_inicio = datetime.datetime.now()
+h = 0
+m = 0
+s = 0
 
 while True:
     cls()
@@ -26,6 +32,8 @@ while True:
     print('Color al que se apuesta: '+color_apuesta)
     print('\nVictorias: '+str(win))
     print('Derrotas: '+str(lose))
+    print('\nHora Inicio: '+str(hora_inicio))
+    print('Tiempo transcurrido: '+str(h)+":"+str(m)+":"+str(s))
 
     ref = get_ref()
     
@@ -42,4 +50,14 @@ while True:
     if (apuesta > presupuesto_inicial):
         print('\nHas perdido, pringao, has tardado '+str(win+lose)+' tiradas')
         print('Te has quedado con '+str(presupuesto)+'€')
+        
     time.sleep(3)
+
+    s += 3
+
+    if s >= 60:
+        s -= 60
+        m += 1
+    if m >= 60:
+        m -= 60
+        h += 1
